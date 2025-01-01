@@ -1,0 +1,97 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to bottom, #1e1e30, #12121f); /* Unified dark gradient */
+  color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Parent Wrapper */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Space between Pomodoro and Todo */
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(40, 40, 60, 0.9); /* Unified frosted container */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* Shared Component Styles */
+.component {
+  width: 100%;
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(30, 30, 48, 0.95); /* Component frosted look */
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Titles */
+.component h1 {
+  font-size: 2.5rem;
+  color: #e0e0ff;
+  text-shadow: 0 0 10px #7a7aff;
+  margin-bottom: 20px;
+}
+
+/* Inputs and Buttons */
+input, button {
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+button {
+  background: linear-gradient(to bottom, #444466, #2c2c44);
+  color: #e0e0ff;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* List Items (Todo) */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+li {
+  background: rgba(50, 50, 70, 0.8);
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 15px;
+    gap: 20px;
+  }
+}

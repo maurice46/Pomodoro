@@ -1,0 +1,50 @@
+/* Timer Section */
+.timer {
+    font-size: 3rem;
+    margin-bottom: 20px; /* Add space below the timer */
+    color: #e0e0ff;
+    text-shadow: 0 0 10px #7a7aff;
+  }
+  
+  /* Button Controls */
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px; /* Space above the button section */
+  }
+  
+  button {
+    padding: 10px 15px;
+    margin: 5px 0;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: linear-gradient(to bottom, #444466, #2c2c44);
+    color: #e0e0ff;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+  }
+
+  .mode-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px; /* Space above this section */
+  }
+  
+  .mode-controls button {
+    padding: 8px 12px;
+    font-size: 1rem;
+    background: linear-gradient(to bottom, #363654, #2b2b40);
+    color: #c0c0ff;
+  }
+  
+  
