@@ -12,11 +12,11 @@
     align-items: flex-start;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: var(--bg-color, #2b2b40); /* Light background for better contrast */
+    background-color: var(--bg-color, #2b2b40);
     border: 1px solid var(--border-color, #ccc);
     border-radius: 5px;
-    color: var(--text-color, white); /* Set text color to dark for readability */
-    font-size: 16px; /* Ensure the font size is readable */
+    color: var(--text-color, white);
+    font-size: 16px;
 }
 
 .Todo li span {
