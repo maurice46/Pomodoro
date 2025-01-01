@@ -11,7 +11,6 @@ Pomodoro Components:
 
 Task Components:
 - Add a task
-- Update a task
 - Delete a task
 - Display the tasks 
 
