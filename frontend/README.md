@@ -55,7 +55,8 @@ It is designed to be simple and easy to use.
 
 Installation and Setup:
 1) python -m venv backend 
-2) cd backend
-3) backend\Scripts\activate
-4) pip install flask 
+2) backend\Scripts\activate
+3) cd backend 
+4) pip install flask flask-sqlalchemy flask-cors
 5) pip show flask 
+
