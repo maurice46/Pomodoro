@@ -46,3 +46,17 @@ the new mode and new time when the user clicks on one of the buttons. So on clic
 watch time, but also the current title as well.
 I also want to fix the to-do component because any time I add a long paragraph, everything gets clumped together. 
 
+--------------------------------------------------------------------------------------------------------------------
+
+Now I want to create a backend. 
+I will be using Python's Flask, which is a lightweight and flexible web framework.
+Allows developers to build web applications quickly and easily. 
+It is designed to be simple and easy to use. 
+
+Installation and Setup:
+1) pip install Flask
+2) mkdir backend
+3) cd backend
+4) py -3 -m venv .venv
+5) .venv\Scripts\activate
+
