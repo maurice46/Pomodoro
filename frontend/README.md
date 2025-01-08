@@ -139,6 +139,8 @@ Doing this fixed that issue and now I'm able to create the api that will send re
 
 In the frontend, I created an api.js file to handle all the API requests to the backend. This file includes functions to get tasks, add a task, and delete a task.
 
+I also made an instance of an axios request that includes the flash backend url instead of implementing it directly in the todo file. 
+
 In the Todo component, I made the following changes:
 1. Fixed the missing closing brace in the `addTodo` function.
 2. Updated the `onClick` event for the add and remove buttons to use arrow functions.
