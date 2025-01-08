@@ -76,18 +76,18 @@ app = Flask(__name__)
 The database configuration specifies the database connection string. 
 sqlite:///database.db indicates you are using a SQLite database and storing it in a file called database.db
 
-We can initialize the SQLAlchemy database instance within the flask app.
+I can initialize the SQLAlchemy database instance within the flask app.
 db = SQLAlchemy(app)
 
-We created a class called "Task" which is the database model that has three fields. 
+I created a class called "Task" which is the database model that has three fields. 
 1) id: A unique integer identifier
 2) title: A string field to store the tasks's title 
 3) done: A boolean field to indicate whether a task is completed (set to false by default)
 
-We create an API object for building RESTful API endpoints.
+I create an API object for building RESTful API endpoints.
 api = Api()
 
-We define a parser (task_parser) for incoming API requests. 
+I define a parser (task_parser) for incoming API requests. 
 1) title: a required string argument for the task title
 2) done: a boolean argument indicating the task's completion status
 
@@ -106,14 +106,14 @@ Now I needed to handle how I would delete the tasks. So I created another class 
 In the delete method, it finds a task by its id. If the id is not found, it returns a 404 error.
 Then it deletes the task from the database, and returns an empty response with a status code 204 (no content).
 
-We then have to register the API resources (endpoints). 
-The /tasks is managed by the TaskListResource and the /task/<task_id> is managed by TaskResource because we need the id to delete the task. 
+I then have to register the API resources (endpoints). 
+The /tasks is managed by the TaskListResource and the /task/<task_id> is managed by TaskResource because I need the id to delete the task. 
 
-We then initalize the database and api:
+I then initalize the database and api:
 - db.init_app(app) connects the sqlalhchemy database to the flask app
 - api.init_app(app) connects the RESTful API to the flask app
 
-Then we can run the app by calling 
+Then I can run the app by calling 
 if __name__ == "__main__": 
 This ensures the code only runs when executing this script directly.
 
@@ -122,4 +122,27 @@ app.app_context() ensures the database tables are created within the flask app's
 db.create_all() creates the task table in the SQLite database if it doesn't already exit.
 
 app.run(debug=True) starts the flask server with debugging enabled. 
+
+Now I need to connect the backend with the frontend. I'll be using axios, which is a popular JavaScript library used to make HTTP requests from a browser or Node.js.
+
+It is lightweight and simplifies the process of interacting with APIs.
+
+Promised-Based:
+- Axios uses JavaScript promises, making it easy to handle asynchronous requests with .then() and .catch()
+
+cd frontend
+npm install axios
+
+There was an error with the database. I put the resources for the api, and the database and models in separate files because there was problems getting the instance of the database. 
+
+Doing this fixed that issue and now I'm able to create the api that will send requests to the backend. 
+
+In the frontend, I created an api.js file to handle all the API requests to the backend. This file includes functions to get tasks, add a task, and delete a task.
+
+In the Todo component, I made the following changes:
+1. Fixed the missing closing brace in the `addTodo` function.
+2. Updated the `onClick` event for the add and remove buttons to use arrow functions.
+3. Added error handling for the `addTodo` and `removeTodo` functions.
+
+These changes ensure that the Todo component works correctly with the backend API and handles errors appropriately.
 

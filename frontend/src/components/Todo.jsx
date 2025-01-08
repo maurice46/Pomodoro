@@ -1,26 +1,52 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/Todo.css";
+import { getTasks, addTask, deleteTask } from "./api";
 
 function Todo() {
     const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState("");
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const inputRef = useRef(null);
 
-    const addTodo = () => {
+    // fetch tasks from the backend
+    useEffect(() => {
+        getTasks()
+        .then(response => {
+            setTodos(response.data); // update the state with the fetched tasks
+            setLoading(false);  
+        })
+        .catch(error => {
+            console.error("Error fetching tasks: ", error);
+            setError("Error fetching tasks: " + error.message);
+            setLoading(false);
+        });
+    }, []);
+
+    const addTodo = async () => {
         if (newTodo) {
-            setTodos([...todos, newTodo]);
-            setNewTodo("");
-            inputRef.current.focus();
+            try {
+                const response = await addTask({ title: newTodo, done: false });
+                setTodos([...todos, response.data]);
+                setNewTodo("");
+                inputRef.current.focus(); // focus on the input after adding a task
+            } catch (error) {
+                setError("Error adding task: " + error.message);
+            } // <-- Missing closing brace added here
         }
     };
 
-    const removeTodo = (index) => {
-        setTodos(todos.filter((_, i) => i !== index));
+    const removeTodo = async (id) => {
+        try {
+            await deleteTask(id);
+            setTodos(todos.filter((todo) => todo.id !== id));
+        } catch (error) {
+            setError("Error removing task: " + error.message);
+        }
     };
-
-    useEffect(() => {
-        inputRef.current.focus();
-    }, []);
+    
+    if (loading) return <div>Loading Tasks...</div>;
+    if (error) return <div>{error}</div>;
 
     return (
         <div className="Todo">
@@ -31,12 +57,12 @@ function Todo() {
                 value={newTodo}
                 onChange={(e) => setNewTodo(e.target.value)}
             />
-            <button className="add" onClick={addTodo}>Add</button>
+            <button className="add" onClick={() => addTodo()}>Add</button>
             <ul>
-                {todos.map((todo, i) => (
-                    <li key={i}>
-                        <span>{todo}</span>
-                        <button className="remove" onClick={() => removeTodo(i)}>Remove</button>
+                {todos.map((todo) => (
+                    <li key={todo.id}>
+                        <span>{todo.title}</span>
+                        <button className="remove" onClick={() => removeTodo(todo.id)}>Remove</button> 
                     </li>
                 ))}
             </ul>
