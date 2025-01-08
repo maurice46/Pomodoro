@@ -54,9 +54,8 @@ Allows developers to build web applications quickly and easily.
 It is designed to be simple and easy to use. 
 
 Installation and Setup:
-1) pip install Flask
-2) mkdir backend
-3) cd backend
-4) py -3 -m venv .venv
-5) .venv\Scripts\activate
-
+1) python -m venv backend 
+2) cd backend
+3) backend\Scripts\activate
+4) pip install flask 
+5) pip show flask 
