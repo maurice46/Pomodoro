@@ -58,7 +58,7 @@ Installation and Setup:
 2) backend\Scripts\activate
 3) cd backend 
 4) pip install flask flask-sqlalchemy flask-cors flask-restful 
-5) pip show flask 
+5) 'deactivate' for when I want to exit the virtual environment in the backend 
 
 First I imported all the required things I think I'll need based on the other times I've used Flask.
 

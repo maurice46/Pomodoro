@@ -32,7 +32,7 @@ function Todo() {
                 inputRef.current.focus(); // focus on the input after adding a task
             } catch (error) {
                 setError("Error adding task: " + error.message);
-            } // <-- Missing closing brace added here
+            } 
         }
     };
 
