@@ -57,6 +57,69 @@ Installation and Setup:
 1) python -m venv backend 
 2) backend\Scripts\activate
 3) cd backend 
-4) pip install flask flask-sqlalchemy flask-cors
+4) pip install flask flask-sqlalchemy flask-cors flask-restful 
 5) pip show flask 
+
+First I imported all the required things I think I'll need based on the other times I've used Flask.
+
+CORS enables cross-origin resource sharing. Basically it allows my frontend to make API requests to my backend. 
+
+SQLAlchemy is a library for managing and interacting with databases in Flask. I am using this database for the todo list in my pomodoro application.
+
+Flask Restful provides an API, which is a way to build RESTful API's in Flask. 
+Resource: Represents a single endpoint in the API 
+reqparse: A utility for parsing and validating request data 
+
+I create a flask application instance, using the app object to represent the entire flask application.
+app = Flask(__name__)
+
+The database configuration specifies the database connection string. 
+sqlite:///database.db indicates you are using a SQLite database and storing it in a file called database.db
+
+We can initialize the SQLAlchemy database instance within the flask app.
+db = SQLAlchemy(app)
+
+We created a class called "Task" which is the database model that has three fields. 
+1) id: A unique integer identifier
+2) title: A string field to store the tasks's title 
+3) done: A boolean field to indicate whether a task is completed (set to false by default)
+
+We create an API object for building RESTful API endpoints.
+api = Api()
+
+We define a parser (task_parser) for incoming API requests. 
+1) title: a required string argument for the task title
+2) done: a boolean argument indicating the task's completion status
+
+task_parser = reqparse.RequestParser()
+.add_argument('title', type=str, required=True)
+.add_argument('done', type=bool, default=False)
+
+Now it was time to create the API endpoints. I started first created a class called TaskListResource which takes in the argument "Resource".
+
+The get method queries all tasks from the database and returns a list of the tasks in JSON format. Each task has an id, title, and done.
+
+The post method parses the request body using task_parser. It creates a new task obect and saves it to the database. It returns a newly created task as a JSON object.
+
+Now I needed to handle how I would delete the tasks. So I created another class called TaskResource and again takes in the argument "Resource".
+
+In the delete method, it finds a task by its id. If the id is not found, it returns a 404 error.
+Then it deletes the task from the database, and returns an empty response with a status code 204 (no content).
+
+We then have to register the API resources (endpoints). 
+The /tasks is managed by the TaskListResource and the /task/<task_id> is managed by TaskResource because we need the id to delete the task. 
+
+We then initalize the database and api:
+- db.init_app(app) connects the sqlalhchemy database to the flask app
+- api.init_app(app) connects the RESTful API to the flask app
+
+Then we can run the app by calling 
+if __name__ == "__main__": 
+This ensures the code only runs when executing this script directly.
+
+app.app_context() ensures the database tables are created within the flask app's context.
+
+db.create_all() creates the task table in the SQLite database if it doesn't already exit.
+
+app.run(debug=True) starts the flask server with debugging enabled. 
 
