@@ -24,4 +24,3 @@ class TaskResource(Resource):
         db.session.delete(task)
         db.session.commit()
         return "", 204
-    
