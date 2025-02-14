@@ -24,3 +24,14 @@ class TaskResource(Resource):
         db.session.delete(task)
         db.session.commit()
         return "", 204
+
+class PomodoroSessionsResource(Resource):
+    def get(self):
+        pass
+
+    def post(self):
+        pass
+
+    def delete(self):
+        pass    
+

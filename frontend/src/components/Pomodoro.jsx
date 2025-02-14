@@ -55,7 +55,7 @@ function Pomodoro() {
         setTime(newTime);
     };
 
-    // time updates 
+    // cleanup function to clear the interval when the component is unmounted
     useEffect(() => {
         return () => clearInterval(timerRef.current);
     }, []);

@@ -148,3 +148,4 @@ In the Todo component, I made the following changes:
 
 These changes ensure that the Todo component works correctly with the backend API and handles errors appropriately.
 
+I also want to keep track of pomodoro sessions as well. 
