@@ -1,6 +1,3 @@
-This is a copy of the original one I was working on. For some reason, I kept getting errors and trying to fix things but nothing seemed to work.
-So, I transferred all my resources and started "fresh" by creating a new React project and inserting all my work into the last one. 
-
 The Pomodoro application is a time management tool designed to enhance productivity by utilizing the Pomodoro Technique. This technique involves working in focused intervals (typically 25 minutes) followed by short breaks, helping users maintain concentration and avoid burnout.
 
 I am creating a Pomodoro Timer with a to-do list below it. It'll be dark-themed, maybe a dark purple.
