@@ -58,7 +58,7 @@ function Todo() {
 
     return (
         <div className="Todo">
-            <h1>Todo List</h1>
+            <h1>To-Do</h1>
             <input
                 // ref is used to access the input element directly
                 ref={inputRef}
