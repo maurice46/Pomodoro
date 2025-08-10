@@ -5,7 +5,10 @@ function Pomodoro() {
     const [time, setTime] = useState(25 * 60);
     const [isRunning, setIsRunning] = useState(false);
     const [mode, setMode] = useState("Pomodoro");
-    const timerRef = useRef(null);
+    // useRef is used to keep track of the timer interval without causing re-renders when it changes
+    // An interval ID is a unique identifier for the timer set by setInterval
+    // it allows us to clear the interval later using clearInterval
+    const timerRef = useRef(null); 
 
     const formatTime = (time) => {
         let minutes = Math.floor(time / 60).toString().padStart(2, "0");
@@ -16,11 +19,14 @@ function Pomodoro() {
     const startTimer = () => {
         if (!isRunning) {
             setIsRunning(true);
+            // timerRef.current is used to store the interval ID so that it can be cleared later
+            // setInterval is used to update the time every second 
             timerRef.current = setInterval(() => {
                 setTime((time) => {
                     if (time >= 1) {
                         return time - 1;
                     } else {
+                        // When the timer reaches 0, clear the interval and alert the user
                         clearInterval(timerRef.current);
                         setIsRunning(false);
                         alert(`${mode} is over!`);
@@ -55,7 +61,10 @@ function Pomodoro() {
         setTime(newTime);
     };
 
-    // cleanup function to clear the interval when the component is unmounted
+    // useEffect is used here to clear the timer when the component unmounts 
+    // to prevent memory leaks and unwanted behavior
+    // unmounting is when the component is removed from the DOM 
+    // this is important for cleanup in React components
     useEffect(() => {
         return () => clearInterval(timerRef.current);
     }, []);
