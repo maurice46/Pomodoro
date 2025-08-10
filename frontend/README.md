@@ -149,3 +149,8 @@ In the Todo component, I made the following changes:
 These changes ensure that the Todo component works correctly with the backend API and handles errors appropriately.
 
 I also want to keep track of pomodoro sessions as well. 
+
+There were errors and I found out it was a broken virtual environment. I had to delete the Scripts folder which held the python stuff, and I think thats why I couldn't run 'python app.py' because it kept giving me a "No Python ...". So I created a new virtual environemtn inside my backend folder using 'python -m venv venv'. Then I activated the environment using 'venv\Scripts\activate' and then installed my dependencies. I ran the 'python app.py' now and it takes me the web page. 
+
+Now the problem is nothing is being sent back and on the frontend the tasks part is showing "Error fetching tasks: Cannot read properties of undefined (reading 'data')". 
+
