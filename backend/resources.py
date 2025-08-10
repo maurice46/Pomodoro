@@ -13,8 +13,8 @@ task_parser.add_argument('done', type=bool, required=True)
 
 class TaskListResource(Resource):
     def get(self):
-        tasks = Task.query.all()
-        return [{'id': t.id, 'title': t.title, 'done': t.done} for t in tasks]
+        tasks = Task.query.all() # fetch all tasks from database
+        return [{'id': t.id, 'title': t.title, 'done': t.done} for t in tasks], 200
 
     def post(self):
         args = task_parser.parse_args()

@@ -154,3 +154,5 @@ There were errors and I found out it was a broken virtual environment. I had to 
 
 Now the problem is nothing is being sent back and on the frontend the tasks part is showing "Error fetching tasks: Cannot read properties of undefined (reading 'data')". 
 
+I found the error. For some reason in my Todo.jsx, when it called the useEffect it did the ".then(response..." twice because there was a second one right below it. After I removed the second one and refreshed the backend page, my tasks appeared again. 
+

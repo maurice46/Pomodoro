@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-// instance of axious with base URL 
+// instance of axios with base URL 
 const instance = axios.create(
     {
-        baseURL: 'http://127.0.0.1:5000', // flask backend url
+        baseURL: 'http://127.0.0.1:5000/', // flask backend url
     }
 );
 

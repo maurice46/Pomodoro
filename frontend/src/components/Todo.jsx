@@ -18,10 +18,6 @@ function Todo() {
             setTodos(response.data); // response.data contains the tasks fetched from the backend
             setLoading(false); 
         })
-        .then(response => {
-            setTodos(response.data); // update the state with the fetched tasks
-            setLoading(false);  
-        })
         .catch(error => {
             console.error("Error fetching tasks: ", error);
             setError("Error fetching tasks: " + error.message);
