@@ -1,5 +1,21 @@
 ![image](https://github.com/user-attachments/assets/86d99447-c3ae-48af-a601-86b7b633ed35)
 
+Using Vite (lightweight web server to run react apps).
+Frontend Initialization:
+1) npm create vite@latest frontend 
+2) npm install
+3) npm run dev
+
+I will be using Python's Flask, which is a lightweight and flexible web framework.
+Allows developers to build web applications quickly and easily. 
+It is designed to be simple and easy to use. 
+
+Installation and Setup:
+1) python -m venv backend 
+2) backend\Scripts\activate
+3) cd backend 
+4) pip install flask flask-sqlalchemy flask-cors
+
 Creating my own version of the Pomodoro Technique Application.
 Will include a Pomodoro 25 min timer, 5 min break, and 15 min break.
 A task bar for the user to add, update, and delete tasks.
